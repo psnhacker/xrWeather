@@ -1,0 +1,17 @@
+using UnityEngine;
+using UnityEditor;
+
+[CustomEditor(typeof(WeatherController))]
+public class WeatherControllerEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        WeatherController generator = (WeatherController)target;
+        if (GUILayout.Button("Start Simulation"))
+        {
+            generator.StartAsyncWeather();
+        }
+    }
+}
